@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """Defines a rectangle class."""
 from models.base import Base
 
@@ -157,3 +156,4 @@ class Rectangle(Base):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.x, self.y,
                                                        self.width, self.height)
+
