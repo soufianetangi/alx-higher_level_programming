@@ -3,7 +3,6 @@
 from models.base import Base
 class Rectangle(Base):
     """Represent a rectangle."""
-
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize a new Rectangle.
 
@@ -29,7 +28,6 @@ class Rectangle(Base):
     def width(self):
         """Set/get the width of the Rectangle."""
         return self.__width
-
     @width.setter
     def width(self, value):
         if type(value) != int:
@@ -37,12 +35,10 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("width must be > 0")
         self.__width = value
-
     @property
     def height(self):
         """Set/get the height of the Rectangle."""
         return self.__height
-
     @height.setter
     def height(self, value):
         if type(value) != int:
@@ -50,12 +46,10 @@ class Rectangle(Base):
         if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
-
     @property
     def x(self):
         """Set/get the x coordinate of the Rectangle."""
         return self.__x
-
     @x.setter
     def x(self, value):
         if type(value) != int:
@@ -63,12 +57,10 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("x must be >= 0")
         self.__x = value
-
     @property
     def y(self):
         """Set/get the y coordinate of the Rectangle."""
         return self.__y
-
     @y.setter
     def y(self, value):
         if type(value) != int:
@@ -76,26 +68,21 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-
     def area(self):
         """Return the area of the Rectangle."""
         return self.width * self.height
-
     def display(self):
         """Print the Rectangle using the `#` character."""
         if self.width == 0 or self.height == 0:
             print("")
             return
-
         [print("") for y in range(self.y)]
         for h in range(self.height):
             [print(" ", end="") for x in range(self.x)]
             [print("#", end="") for w in range(self.width)]
             print("")
-
     def update(self, *args, **kwargs):
         """Update the Rectangle.
-
         Args:
             *args (ints): New attribute values.
                 - 1st argument represents id attribute
@@ -122,7 +109,6 @@ class Rectangle(Base):
                 elif a == 4:
                     self.y = arg
                 a += 1
-
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "id":
@@ -138,7 +124,6 @@ class Rectangle(Base):
                     self.x = v
                 elif k == "y":
                     self.y = v
-
     def to_dictionary(self):
         """Return the dictionary representation of a Rectangle."""
         return {
@@ -148,7 +133,6 @@ class Rectangle(Base):
             "x": self.x,
             "y": self.y
         }
-
     def __str__(self):
         """Return the print() and str() representation of the Rectangle."""
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
